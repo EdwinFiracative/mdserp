@@ -1,0 +1,30 @@
+> login.component.html
+```html
+<mat-card>
+    <mat-card-header>
+        <h2>Sistema Soluciones Telcel</h2>
+    </mat-card-header>
+    <mat-card-content>
+        <form #loginForm="ngForm" (submit)="login()">
+            <h4 class="card-title">Acceso</h4>
+            <mat-error *ngIf="!loginValid">
+                El usuario y contraseña no son correctos!.
+            </mat-error>
+            <mat-form-field>
+                <mat-label>Usuario</mat-label>
+                <input matInput placeholder="Usuario" [(ngModel)]="user" name="username" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" placeholder="Contraseña" [(ngModel)]="password" name="password"
+                    required>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
+        </form>
+    </mat-card-content>
+</mat-card>
+
+<footer>
+    Copyright © {{year}}
+    <a href="#" rel="" target="_blank" title="Retrogemu">Retrogemu</a>
+</footer>
