@@ -48,19 +48,6 @@ export default class LoginComponent {
       next: () => {
         this.loginValid = true;
         this.router.navigate(['/home-user']);
-        console.log('tocken login:', this.authService.accessToken().token);
-        this.tocken = this.authService.accessToken();
-        console.log('token string:', this.tocken);
-        this.decodedToken = this.helper.decodeToken(this.tocken.token);
-        this.decTokenObj = new Object(this.decodedToken) as DecodedToken;
-        console.log('decoded token object iat:', this.decTokenObj.iat);
-        this.expirationDate =
-          this.helper.getTokenExpirationDate(this.tocken.token)?.toString() ||
-          '';
-        console.log('decoded token:', this.decodedToken);
-        console.log('expiration date:', this.expirationDate);
-        const expiresAt = moment(this.decTokenObj.exp*1000).format('YYYY-MM-DD HH:mm:ss');
-        console.log('expires at:', expiresAt);
       },
       error: (err) => (this.loginValid = false),
     });

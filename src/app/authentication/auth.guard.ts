@@ -13,8 +13,6 @@ auth = inject(AuthService);
       this.router.navigate(['/login']);
       return false;
     }
-    console.log('expiration:', this.auth.getExpiration().toString());
     return true;
-
   }
 }
